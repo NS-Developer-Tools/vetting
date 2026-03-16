@@ -1,0 +1,12 @@
+@media print {
+  body * { visibility: hidden; }
+  #scorecard-print, #scorecard-print * { visibility: visible; }
+  #scorecard-print { position: absolute; left: 0; top: 0; width: 100%; }
+  .section-card { page-break-inside: avoid; }
+  .verdict-banner { page-break-after: avoid; }
+  * { box-shadow: none !important; }
+  @page {
+    margin: 18mm;
+    size: letter portrait;
+  }
+}
