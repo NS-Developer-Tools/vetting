@@ -6,7 +6,7 @@ const VS = {
   REVIEW:      { bg: "#fef9c3", text: "#ca8a04", border: "#fde047" },
   DECLINE:     { bg: "#fee2e2", text: "#dc2626", border: "#fca5a5" },
   "HARD STOP": { bg: "#ede9fe", text: "#7c3aed", border: "#c4b5fd" },
-  CANDIDATE:   { bg: "#f0f9ff", text: "#0284c7", border: "#bae6fd" },
+  CANDIDATE:   { bg: "#f0f7f0", text: "#5b8c5a", border: "#c8dfc7" },
 };
 
 export default function DatabaseView({ onView, onEdit }) {
@@ -57,7 +57,7 @@ export default function DatabaseView({ onView, onEdit }) {
     ["REVIEW", counts.REVIEW || 0, "#ca8a04"],
     ["DECLINE", counts.DECLINE || 0, "#dc2626"],
     ["HARD STOP", counts["HARD STOP"] || 0, "#7c3aed"],
-    ["CANDIDATE", counts.CANDIDATE || 0, "#0284c7"],
+    ["CANDIDATE", counts.CANDIDATE || 0, "#5b8c5a"],
   ];
 
   return (
@@ -169,7 +169,7 @@ export default function DatabaseView({ onView, onEdit }) {
 
                 {/* Actions */}
                 <div style={{ display: "flex", gap: "6px", flexShrink: 0 }}>
-                  <button onClick={() => onView(card)} style={{ padding: "6px 14px", borderRadius: "7px", border: "none", background: "#3b82f6", color: "white", fontSize: "12px", fontWeight: "600", cursor: "pointer" }}>View</button>
+                  <button onClick={() => onView(card)} style={{ padding: "6px 14px", borderRadius: "7px", border: "none", background: "#5b8c5a", color: "white", fontSize: "12px", fontWeight: "600", cursor: "pointer" }}>View</button>
                   <button onClick={() => onEdit(card)} style={{ padding: "6px 12px", borderRadius: "7px", border: "1px solid #e2e8f0", background: "white", color: "#374151", fontSize: "12px", cursor: "pointer" }}>Edit</button>
                   <button
                     onClick={() => handleDelete(card)}

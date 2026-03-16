@@ -13,7 +13,7 @@ import {
 const TREND_CONFIG = {
   improving:        { icon: "📈", label: "Improving",        bg: "#f0fdf4", border: "#bbf7d0", text: "#15803d" },
   declining:        { icon: "📉", label: "Declining",        bg: "#fef2f2", border: "#fecaca", text: "#dc2626" },
-  stable:           { icon: "➡️",  label: "Stable",           bg: "#eff6ff", border: "#bfdbfe", text: "#1d4ed8" },
+  stable:           { icon: "➡️",  label: "Stable",           bg: "#f0f7f0", border: "#c8dfc7", text: "#5b8c5a" },
   insufficient_data:{ icon: "⚪",  label: "No Recent Data",   bg: "#f8fafc", border: "#e2e8f0", text: "#64748b" },
 };
 
@@ -215,7 +215,7 @@ export default function MonitoringDashboard() {
                 onClick={runDailyCheck}
                 style={{
                   padding: "8px 16px", borderRadius: "8px", border: "none",
-                  background: "linear-gradient(135deg, #0f172a 0%, #3b82f6 100%)",
+                  background: "linear-gradient(135deg, #497048 0%, #5b8c5a 100%)",
                   color: "white", cursor: "pointer", fontSize: "13px", fontWeight: "700",
                 }}
               >
@@ -228,11 +228,11 @@ export default function MonitoringDashboard() {
         {/* ── Scan progress bar ──────────────────────────────────────── */}
         {scanning && scanProgress && (
           <div style={{
-            marginTop: "16px", background: "white", border: "1px solid #bfdbfe",
+            marginTop: "16px", background: "white", border: "1px solid #c8dfc7",
             borderRadius: "10px", padding: "14px 16px",
           }}>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-              <span style={{ fontSize: "13px", fontWeight: "600", color: "#1d4ed8" }}>
+              <span style={{ fontSize: "13px", fontWeight: "600", color: "#5b8c5a" }}>
                 Scanning: {scanTarget}
               </span>
               <span style={{ fontSize: "12px", color: "#64748b" }}>
@@ -243,7 +243,7 @@ export default function MonitoringDashboard() {
               <div style={{
                 height: "100%",
                 width: `${(scanProgress.current / scanProgress.total) * 100}%`,
-                background: "linear-gradient(90deg, #3b82f6, #06b6d4)",
+                background: "linear-gradient(90deg, #5b8c5a, #e8912e)",
                 borderRadius: "99px",
                 transition: "width 0.4s ease",
               }} />
@@ -268,9 +268,9 @@ export default function MonitoringDashboard() {
       {/* ── Stats cards ─────────────────────────────────────────────────── */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "12px", marginBottom: "20px" }}>
         {[
-          { label: "Active Contractors", value: contractors.length, color: "#0f172a", icon: "🏢" },
-          { label: "Checked Today",      value: checkedToday,       color: "#1d4ed8", icon: "✅" },
-          { label: "Recent Activity",    value: withActivity,       color: "#0284c7", icon: "💬" },
+          { label: "Active Contractors", value: contractors.length, color: "#497048", icon: "🏢" },
+          { label: "Checked Today",      value: checkedToday,       color: "#5b8c5a", icon: "✅" },
+          { label: "Recent Activity",    value: withActivity,       color: "#5b8c5a", icon: "💬" },
           { label: "Flagged Declining",  value: declining,          color: declining > 0 ? "#dc2626" : "#64748b", icon: "📉" },
         ].map(s => (
           <div key={s.label} style={{
@@ -287,9 +287,9 @@ export default function MonitoringDashboard() {
       {/* ── Filter pills ────────────────────────────────────────────────── */}
       <div style={{ display: "flex", gap: "8px", marginBottom: "16px", flexWrap: "wrap" }}>
         {[
-          { id: "all",        label: `All (${contractors.length})`,                              color: "#0f172a" },
+          { id: "all",        label: `All (${contractors.length})`,                              color: "#497048" },
           { id: "improving",  label: `📈 Improving`,                                             color: "#15803d" },
-          { id: "stable",     label: `➡️ Stable`,                                                color: "#1d4ed8" },
+          { id: "stable",     label: `➡️ Stable`,                                                color: "#5b8c5a" },
           { id: "declining",  label: `📉 Declining (${declining})`,                              color: "#dc2626" },
           { id: "not_checked",label: `⚪ Not Checked (${contractors.length - checkedToday})`,    color: "#64748b" },
         ].map(f => (
@@ -412,7 +412,7 @@ function ContractorCard({ contractor, record, scanning, onView, onScan }) {
           style={{
             padding: "4px 10px", borderRadius: "6px", fontSize: "11px", fontWeight: "600",
             border: "1px solid #e2e8f0", background: scanning ? "#f8fafc" : "white",
-            color: scanning ? "#94a3b8" : "#3b82f6", cursor: scanning ? "not-allowed" : "pointer",
+            color: scanning ? "#94a3b8" : "#5b8c5a", cursor: scanning ? "not-allowed" : "pointer",
           }}
         >
           {scanning ? "⟳ Scanning…" : "⟳ Check Now"}

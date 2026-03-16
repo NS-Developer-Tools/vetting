@@ -27,7 +27,7 @@ export default function ScorecardDetail({ card, onBack, onEdit }) {
           <button onClick={() => onEdit(card)} style={{ padding: "8px 16px", borderRadius: "8px", border: "1px solid #e2e8f0", background: "white", color: "#374151", fontSize: "13px", fontWeight: "600", cursor: "pointer" }}>
             ✏️ Edit
           </button>
-          <button onClick={() => downloadScorecardPDF(card)} style={{ padding: "8px 18px", borderRadius: "8px", border: "none", background: "#3b82f6", color: "white", fontSize: "13px", fontWeight: "700", cursor: "pointer" }}>
+          <button onClick={() => downloadScorecardPDF(card)} style={{ padding: "8px 18px", borderRadius: "8px", border: "none", background: "#e8912e", color: "white", fontSize: "13px", fontWeight: "700", cursor: "pointer" }}>
             📄 Download PDF
           </button>
         </div>
@@ -114,7 +114,7 @@ export default function ScorecardDetail({ card, onBack, onEdit }) {
         if (answered.length === 0) return null;
         return (
           <div key={s.id} style={{ background: "white", borderRadius: "12px", padding: "18px 20px", marginBottom: "10px", boxShadow: "0 1px 3px rgba(0,0,0,0.07)" }}>
-            <h3 style={{ margin: "0 0 12px", fontSize: "13px", fontWeight: "700", color: "#1e3a5f" }}>{s.icon} {s.title}</h3>
+            <h3 style={{ margin: "0 0 12px", fontSize: "13px", fontWeight: "700", color: "#374151" }}>{s.icon} {s.title}</h3>
             <div style={{ display: "flex", flexDirection: "column", gap: "7px" }}>
               {answered.map(f => {
                 const score = selections[`${f.id}_score`] ?? 0;

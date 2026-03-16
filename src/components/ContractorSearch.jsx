@@ -256,12 +256,12 @@ function CandidateRow({ rank, name, location, progress, onScore, onRetry }) {
 
       <div style={{ flexShrink: 0 }}>
         {progress === "idle" && (
-          <button onClick={onScore} style={{ padding: "7px 16px", borderRadius: "7px", border: "none", background: "#3b82f6", color: "white", fontSize: "12px", fontWeight: "700", cursor: "pointer" }}>
+          <button onClick={onScore} style={{ padding: "7px 16px", borderRadius: "7px", border: "none", background: "#e8912e", color: "white", fontSize: "12px", fontWeight: "700", cursor: "pointer" }}>
             Run Scorecard →
           </button>
         )}
         {progress === "pausing" && <span style={{ fontSize: "12px", color: "#94a3b8", fontStyle: "italic" }}>⏸ Rate limit pause…</span>}
-        {progress === "vetting" && <span style={{ fontSize: "12px", color: "#3b82f6", fontWeight: "600" }}>⏳ Researching…</span>}
+        {progress === "vetting" && <span style={{ fontSize: "12px", color: "#5b8c5a", fontWeight: "600" }}>⏳ Researching…</span>}
         {progress === "error" && (
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             <span style={{ fontSize: "12px", color: "#dc2626" }}>❌ Failed</span>
@@ -458,7 +458,7 @@ export default function ContractorSearch({ onView, onEdit }) {
       {/* ── Step 1: Search form ───────────────────────────────────────────── */}
       <div style={{ background: "white", borderRadius: "14px", padding: "22px 24px", boxShadow: "0 1px 4px rgba(0,0,0,0.08)", marginBottom: "20px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
-          <span style={{ fontSize: "11px", fontWeight: "800", background: "#3b82f6", color: "white", borderRadius: "4px", padding: "2px 7px" }}>STEP 1</span>
+          <span style={{ fontSize: "11px", fontWeight: "800", background: "#5b8c5a", color: "white", borderRadius: "4px", padding: "2px 7px" }}>STEP 1</span>
           <h2 style={{ margin: 0, fontSize: "17px", fontWeight: "800", color: "#0f172a" }}>Find Top Contractors</h2>
         </div>
         <p style={{ margin: "0 0 18px", fontSize: "12px", color: "#94a3b8" }}>
@@ -485,7 +485,7 @@ export default function ContractorSearch({ onView, onEdit }) {
             <button
               onClick={handleFind}
               disabled={phase === "finding"}
-              style={{ padding: "9px 24px", borderRadius: "8px", border: "none", background: phase === "finding" ? "#93c5fd" : "#3b82f6", color: "white", fontWeight: "700", fontSize: "13px", cursor: phase === "finding" ? "wait" : "pointer", height: "38px", whiteSpace: "nowrap" }}
+              style={{ padding: "9px 24px", borderRadius: "8px", border: "none", background: phase === "finding" ? "#a8c5a7" : "#e8912e", color: "white", fontWeight: "700", fontSize: "13px", cursor: phase === "finding" ? "wait" : "pointer", height: "38px", whiteSpace: "nowrap" }}
             >
               {phase === "finding" ? "Searching…" : "Find Top 3 →"}
             </button>
@@ -554,7 +554,7 @@ export default function ContractorSearch({ onView, onEdit }) {
                         <td style={{ padding: "8px 12px", color: "#64748b" }}>{r.phone || "—"}</td>
                         <td style={{ padding: "8px 12px" }}>
                           {r.website
-                            ? <a href={r.website.startsWith("http") ? r.website : `https://${r.website}`} target="_blank" rel="noreferrer" style={{ color: "#3b82f6", fontWeight: "600" }}>↗ Visit</a>
+                            ? <a href={r.website.startsWith("http") ? r.website : `https://${r.website}`} target="_blank" rel="noreferrer" style={{ color: "#5b8c5a", fontWeight: "600" }}>↗ Visit</a>
                             : <span style={{ color: "#64748b" }}>—</span>}
                         </td>
                         <td style={{ padding: "8px 12px", color: "#64748b" }}>{r.license || "—"}</td>
@@ -570,7 +570,7 @@ export default function ContractorSearch({ onView, onEdit }) {
               <button
                 onClick={handleCSVImport}
                 disabled={valid.length === 0}
-                style={{ padding: "9px 20px", borderRadius: "8px", border: "none", background: "#3b82f6", color: "white", fontWeight: "700", fontSize: "13px", cursor: valid.length > 0 ? "pointer" : "not-allowed" }}
+                style={{ padding: "9px 20px", borderRadius: "8px", border: "none", background: "#e8912e", color: "white", fontWeight: "700", fontSize: "13px", cursor: valid.length > 0 ? "pointer" : "not-allowed" }}
               >
                 Import {valid.length} Contractors as Candidates →
               </button>
@@ -604,7 +604,7 @@ export default function ContractorSearch({ onView, onEdit }) {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "14px", flexWrap: "wrap", gap: "10px" }}>
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "3px" }}>
-                <span style={{ fontSize: "11px", fontWeight: "800", background: "#06b6d4", color: "white", borderRadius: "4px", padding: "2px 7px" }}>STEP 2</span>
+                <span style={{ fontSize: "11px", fontWeight: "800", background: "#e8912e", color: "white", borderRadius: "4px", padding: "2px 7px" }}>STEP 2</span>
                 <span style={{ fontSize: "16px", fontWeight: "800", color: "#0f172a" }}>
                   {source === "csv"
                     ? `Run Scorecards — ${candidates.length} contractors from CSV`
@@ -622,13 +622,13 @@ export default function ContractorSearch({ onView, onEdit }) {
             {pendingCount > 0 && !isScoreAllRunning && (
               <button
                 onClick={handleScoreAll}
-                style={{ padding: "9px 20px", borderRadius: "8px", border: "none", background: "#3b82f6", color: "white", fontWeight: "700", fontSize: "13px", cursor: "pointer", whiteSpace: "nowrap" }}
+                style={{ padding: "9px 20px", borderRadius: "8px", border: "none", background: "#e8912e", color: "white", fontWeight: "700", fontSize: "13px", cursor: "pointer", whiteSpace: "nowrap" }}
               >
                 Score All {pendingCount} →
               </button>
             )}
             {isScoreAllRunning && (
-              <span style={{ fontSize: "12px", color: "#3b82f6", fontWeight: "600", alignSelf: "center" }}>⏳ Running scorecards…</span>
+              <span style={{ fontSize: "12px", color: "#5b8c5a", fontWeight: "600", alignSelf: "center" }}>⏳ Running scorecards…</span>
             )}
           </div>
 

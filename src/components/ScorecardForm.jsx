@@ -104,8 +104,8 @@ function ReferenceSection({ refChecks, onChange }) {
           <label key={opt.id} style={{
             display: "flex", alignItems: "center", gap: "10px", cursor: "pointer",
             padding: "8px 12px", borderRadius: "8px",
-            border: `1px solid ${refChecks[opt.id] ? "#3b82f6" : "#e2e8f0"}`,
-            background: refChecks[opt.id] ? "#eff6ff" : "white",
+            border: `1px solid ${refChecks[opt.id] ? "#5b8c5a" : "#e2e8f0"}`,
+            background: refChecks[opt.id] ? "#f0f7f0" : "white",
           }}>
             <input
               type="checkbox"
@@ -133,7 +133,7 @@ function SectionCard({ section, selections, onSelect, note, onNoteChange }) {
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
             <h2 style={{ margin: 0, fontSize: "14px", fontWeight: "700", color: "#0f172a" }}>{section.icon} {section.title}</h2>
-            {section.auto && <span style={{ fontSize: "9px", background: "#dbeafe", color: "#3b82f6", borderRadius: "4px", padding: "2px 6px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.04em" }}>Auto</span>}
+            {section.auto && <span style={{ fontSize: "9px", background: "#ddf0dd", color: "#5b8c5a", borderRadius: "4px", padding: "2px 6px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.04em" }}>Auto</span>}
           </div>
           {section.hint && <p style={{ margin: "4px 0 0", fontSize: "11px", color: "#94a3b8", fontStyle: "italic" }}>{section.hint}</p>}
         </div>
@@ -157,8 +157,8 @@ function SectionCard({ section, selections, onSelect, note, onNoteChange }) {
                   <label key={opt.label} style={{
                     display: "flex", alignItems: "center", gap: "9px", cursor: "pointer",
                     padding: "7px 11px", borderRadius: "8px",
-                    border: `1px solid ${isSelected ? (optIsStop ? "#a855f7" : "#3b82f6") : "#e8edf2"}`,
-                    background: isSelected ? (optIsStop ? "#f5f3ff" : "#eff6ff") : "#fafbfc",
+                    border: `1px solid ${isSelected ? (optIsStop ? "#a855f7" : "#5b8c5a") : "#e8edf2"}`,
+                    background: isSelected ? (optIsStop ? "#f5f3ff" : "#f0f7f0") : "#fafbfc",
                     transition: "border-color 0.12s, background 0.12s",
                   }}>
                     <input
@@ -311,13 +311,13 @@ export default function ScorecardForm({ initialData, onSaved }) {
 
       {/* Auto-research bar */}
       <div style={{
-        background: "linear-gradient(135deg, #1e40af 0%, #2563eb 100%)",
+        background: "linear-gradient(135deg, #497048 0%, #5b8c5a 100%)",
         borderRadius: "12px", padding: "14px 18px", marginBottom: "14px",
         display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "10px",
       }}>
         <div>
           <div style={{ color: "white", fontWeight: "700", fontSize: "13px" }}>🤖 AI Auto-Research</div>
-          <div style={{ color: "#bfdbfe", fontSize: "11px" }}>
+          <div style={{ color: "#c8e6c8", fontSize: "11px" }}>
             Fills {autoSections.length} sections automatically via web search
           </div>
         </div>
@@ -332,7 +332,7 @@ export default function ScorecardForm({ initialData, onSaved }) {
               padding: "8px 18px", borderRadius: "8px", border: "none",
               cursor: researching ? "wait" : "pointer",
               background: researching ? "#93c5fd" : "white",
-              color: "#1e40af", fontWeight: "700", fontSize: "12px",
+              color: "#497048", fontWeight: "700", fontSize: "12px",
               opacity: researching ? 0.8 : 1,
             }}
           >
@@ -389,7 +389,7 @@ export default function ScorecardForm({ initialData, onSaved }) {
           style={{
             padding: "12px 36px", borderRadius: "10px", border: "none",
             cursor: saving ? "wait" : "pointer",
-            background: saveFlash ? "#16a34a" : "#1e40af",
+            background: saveFlash ? "#16a34a" : "#e8912e",
             color: "white", fontWeight: "700", fontSize: "14px",
             boxShadow: "0 4px 14px rgba(30,64,175,0.35)",
             transition: "background 0.2s",

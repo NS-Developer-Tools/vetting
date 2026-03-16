@@ -29,8 +29,8 @@ export default function App() {
     borderRadius: "6px",
     border: active ? "none" : "1px solid rgba(255,255,255,0.3)",
     cursor: "pointer",
-    background: active ? "white" : "transparent",
-    color: active ? "#0f172a" : "white",
+    background: active ? "#e8912e" : "transparent",
+    color: "white",
     fontWeight: "600",
     fontSize: "12px",
     whiteSpace: "nowrap",
@@ -40,9 +40,9 @@ export default function App() {
   const navActions = { search: goSearch, form: goNew, database: goDatabase, monitor: goMonitor };
 
   return (
-    <div style={{ fontFamily: "system-ui, -apple-system, sans-serif", minHeight: "100vh", background: "#f1f5f9" }}>
+    <div style={{ fontFamily: "system-ui, -apple-system, sans-serif", minHeight: "100vh", background: "#f0f7f0" }}>
       <header style={{
-        background: "linear-gradient(135deg, #0f172a 0%, #3b82f6 100%)",
+        background: "linear-gradient(135deg, #497048 0%, #5b8c5a 100%)",
         color: "white",
         padding: "0 24px",
         display: "flex",
