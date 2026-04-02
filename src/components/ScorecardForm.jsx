@@ -208,7 +208,12 @@ function SectionCard({ section, selections, onSelect, note, onNoteChange }) {
 export default function ScorecardForm({ initialData, onSaved }) {
   const today = new Date().toISOString().slice(0, 10);
   const [applicant, setApplicant] = useState({ name: "", location: "", trade: "", date: today, reviewer: "" });
-  const [selections, setSelections] = useState({});
+  const [selections, setSelections] = useState({
+    has_liability: "Yes – verified certificate on file",
+    has_liability_score: 12,
+    has_workers_comp: "Yes – verified",
+    has_workers_comp_score: 8,
+  });
   const [refChecks, setRefChecks] = useState({});
   const [notes, setNotes] = useState({});
   const [researchNotes, setResearchNotes] = useState("");
