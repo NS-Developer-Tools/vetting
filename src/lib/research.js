@@ -122,7 +122,7 @@ Return ONLY a valid JSON array — no markdown, no explanation, no extra text:
 ]
 Use null for website or phone if not found.`;
 
-  const text = await callClaude(prompt, 300);
+  const text = await callClaude(prompt, 1000);
   const jsonStr = text.replace(/```json|```/g, "").trim().match(/\[[\s\S]*\]/)?.[0];
   if (!jsonStr) throw new Error(`No ${category} contractors found in ${city}, ${state}. Try a different city or category.`);
 
