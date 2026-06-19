@@ -114,12 +114,13 @@ Prioritize businesses with:
 
 Return ONLY a valid JSON array — no markdown, no explanation, no extra text:
 [
-  {"name": "Exact Business Name 1", "location": "${city}, ${state}"},
-  {"name": "Exact Business Name 2", "location": "${city}, ${state}"},
-  {"name": "Exact Business Name 3", "location": "${city}, ${state}"},
-  {"name": "Exact Business Name 4", "location": "${city}, ${state}"},
-  {"name": "Exact Business Name 5", "location": "${city}, ${state}"}
-]`;
+  {"name": "Exact Business Name 1", "location": "${city}, ${state}", "website": "https://example.com", "phone": "555-123-4567"},
+  {"name": "Exact Business Name 2", "location": "${city}, ${state}", "website": "https://example.com", "phone": "555-123-4567"},
+  {"name": "Exact Business Name 3", "location": "${city}, ${state}", "website": "https://example.com", "phone": "555-123-4567"},
+  {"name": "Exact Business Name 4", "location": "${city}, ${state}", "website": "https://example.com", "phone": "555-123-4567"},
+  {"name": "Exact Business Name 5", "location": "${city}, ${state}", "website": "https://example.com", "phone": "555-123-4567"}
+]
+Use null for website or phone if not found.`;
 
   const text = await callClaude(prompt, 300);
   const jsonStr = text.replace(/```json|```/g, "").trim().match(/\[[\s\S]*\]/)?.[0];

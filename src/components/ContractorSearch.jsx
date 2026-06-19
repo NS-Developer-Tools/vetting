@@ -233,7 +233,8 @@ function ScoredCard({ card, rank, onView, onEdit }) {
 }
 
 // ── Candidate row (Step 2 — not yet scored) ────────────────────────────────────
-function CandidateRow({ rank, name, location, progress, onScore, onRetry }) {
+function CandidateRow({ rank, name, location, website, phone, progress, onScore, onRetry }) {
+  const websiteHref = website && (website.startsWith("http") ? website : `https://${website}`);
   return (
     <div style={{
       background: "white", borderRadius: "12px", padding: "14px 18px",
@@ -252,6 +253,20 @@ function CandidateRow({ rank, name, location, progress, onScore, onRetry }) {
       <div style={{ flex: 1, minWidth: "120px" }}>
         <div style={{ fontSize: "14px", fontWeight: "700", color: "#0f172a" }}>{name}</div>
         <div style={{ fontSize: "11px", color: "#94a3b8", marginTop: "1px" }}>{location}</div>
+        {(websiteHref || phone) && (
+          <div style={{ display: "flex", gap: "12px", marginTop: "5px", flexWrap: "wrap" }}>
+            {websiteHref && (
+              <a href={websiteHref} target="_blank" rel="noreferrer" style={{ fontSize: "11px", color: "#5b8c5a", fontWeight: "600", textDecoration: "none" }}>
+                ↗ Website
+              </a>
+            )}
+            {phone && (
+              <a href={`tel:${phone}`} style={{ fontSize: "11px", color: "#5b8c5a", fontWeight: "600", textDecoration: "none" }}>
+                📞 {phone}
+              </a>
+            )}
+          </div>
+        )}
       </div>
 
       <div style={{ flexShrink: 0 }}>
@@ -336,7 +351,7 @@ export default function ContractorSearch({ onView, onEdit }) {
       const cards = contractors.map((c, i) => ({
         id:        `cand_${base}_${i}`,
         savedAt:   new Date().toISOString(),
-        applicant: { name: c.name, location: c.location || location, trade: category.trim(), date: today, reviewer: "Auto-Research" },
+        applicant: { name: c.name, location: c.location || location, trade: category.trim(), date: today, reviewer: "Auto-Research", website: c.website || null, phone: c.phone || null },
         selections: {}, refChecks: {}, notes: {}, hardStops: [],
         researchNotes: "", autoSources: {}, total: 0, pct: 0,
         verdictLabel: "CANDIDATE",
@@ -616,7 +631,7 @@ export default function ContractorSearch({ onView, onEdit }) {
                   ? `${candidates.length} contractors imported from CSV and saved as candidates`
                   : excludedCount > 0
                     ? `⚠️ ${excludedCount} contractor${excludedCount > 1 ? "s" : ""} with failing scores excluded from these results`
-                    : "3 candidates found and saved to your database — select any to run the full scorecard"}
+                    : `${candidates.length} candidates found and saved to your database — select any to run the full scorecard`}
               </div>
             </div>
             {pendingCount > 0 && !isScoreAllRunning && (
@@ -643,6 +658,8 @@ export default function ContractorSearch({ onView, onEdit }) {
                     rank={i + 1}
                     name={c.applicant.name}
                     location={c.applicant.location}
+                    website={c.applicant.website}
+                    phone={c.applicant.phone}
                     progress={vetProgress[i]}
                     onScore={() => scoreOne(i)}
                     onRetry={() => scoreOne(i)}
