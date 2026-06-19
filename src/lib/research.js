@@ -103,7 +103,7 @@ export async function findTopContractorNames(city, state, category, excluded = [
     ? `\nDo NOT include any of these contractors — they have already been vetted and received failing scores: ${excluded.join(", ")}`
     : "";
 
-  const prompt = `Search the web to find the 3 best-rated, most reputable ${category} contractors currently operating in ${city}, ${state}.${exclusionNote}
+  const prompt = `Search the web to find the 5 best-rated, most reputable ${category} contractors currently operating in ${city}, ${state}.${exclusionNote}
 
 Prioritize businesses with:
 - High Google star ratings (4.0+ stars)
@@ -116,7 +116,9 @@ Return ONLY a valid JSON array — no markdown, no explanation, no extra text:
 [
   {"name": "Exact Business Name 1", "location": "${city}, ${state}"},
   {"name": "Exact Business Name 2", "location": "${city}, ${state}"},
-  {"name": "Exact Business Name 3", "location": "${city}, ${state}"}
+  {"name": "Exact Business Name 3", "location": "${city}, ${state}"},
+  {"name": "Exact Business Name 4", "location": "${city}, ${state}"},
+  {"name": "Exact Business Name 5", "location": "${city}, ${state}"}
 ]`;
 
   const text = await callClaude(prompt, 300);
@@ -127,7 +129,7 @@ Return ONLY a valid JSON array — no markdown, no explanation, no extra text:
   if (!Array.isArray(contractors) || contractors.length === 0) {
     throw new Error(`No contractors found. Try a different city or category.`);
   }
-  return contractors.slice(0, 3);
+  return contractors.slice(0, 5);
 }
 
 // ── Convert raw research result → selections object ────────────────────────────

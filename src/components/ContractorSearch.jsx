@@ -462,7 +462,7 @@ export default function ContractorSearch({ onView, onEdit }) {
           <h2 style={{ margin: 0, fontSize: "17px", fontWeight: "800", color: "#0f172a" }}>Find Top Contractors</h2>
         </div>
         <p style={{ margin: "0 0 18px", fontSize: "12px", color: "#94a3b8" }}>
-          Search the web for the top 3 local contractors — they'll be saved to your database as candidates, then you choose when to run the full vetting scorecard
+          Search the web for the top 5 local contractors — they'll be saved to your database as candidates, then you choose when to run the full vetting scorecard
         </p>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "flex-end" }}>
@@ -487,7 +487,7 @@ export default function ContractorSearch({ onView, onEdit }) {
               disabled={phase === "finding"}
               style={{ padding: "9px 24px", borderRadius: "8px", border: "none", background: phase === "finding" ? "#a8c5a7" : "#e8912e", color: "white", fontWeight: "700", fontSize: "13px", cursor: phase === "finding" ? "wait" : "pointer", height: "38px", whiteSpace: "nowrap" }}
             >
-              {phase === "finding" ? "Searching…" : "Find Top 3 →"}
+              {phase === "finding" ? "Searching…" : "Find Top 5 →"}
             </button>
           </div>
         </div>
